@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📋 Generador de Reportes PDF</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        #reportContainer {
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .status-success {
+            background-color: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Generador de Reportes PDF</h1>
+        
+        <form id="reportForm">
+            <div class="form-group">
+                <label for="name">👤 Nombre Completo:</label>
+                <input type="text" id="name" placeholder="Ingrese su nombre completo" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">📧 Correo Electrónico:</label>
+                <input type="email" id="email" placeholder="ejemplo@correo.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">📱 Teléfono:</label>
+                <input type="tel" id="phone" placeholder="Número de teléfono" />
+            </div>
+
+            <div class="form-group">
+                <label for="project">💼 Proyecto:</label>
+                <select id="project">
+                    <option value="">Seleccione un proyecto</option>
+                    <option value="Desarrollo Web">Desarrollo Web</option>
+                    <option value="Aplicación Móvil">Aplicación Móvil</option>
+                    <option value="Sistema de Gestión">Sistema de Gestión</option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" onclick="generateReport()">📤 Crear Reporte PDF</button>
+            </div>
+        </form>
+
+        <div id="statusMessage" class="status-message"></div>
+        <div id="reportContainer"></div>
+    </div>
+
+    <!-- Librería jsPDF desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script src="script.js">
+
+    </script>
+</body>
+</html>
